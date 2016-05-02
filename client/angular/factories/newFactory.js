@@ -8,11 +8,20 @@ myApp.factory('newFactory', function($http) {
 		})
 	}
 	factory.postData = function(data, callback) {
-		$http.get('/data', data).success(function(res) {
-			data = res;
+		$http.post('/data', data).success(function(res) {
+			data.push(res);
 			callback(data);
 		})
 	}
-
+	factory.updateData = function(callback) {
+		$http.put('/data/:id').success(function(res) {
+		
+		})
+	}
+	factory.deleteData = function(callback) {
+		$http.delete('/data/:id').success(function(res) {
+		
+		})
+	}
 	return factory;
 })
